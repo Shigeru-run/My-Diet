@@ -60,13 +60,22 @@
     margin-bottom: 6px; margin-top: 12px; font-weight: 500;
   }
   label:first-child, .row label { margin-top: 0; }
-  input, select, textarea {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+  select, textarea {
     width: 100%; padding: 12px;
     border: 1px solid #d1d1d6; border-radius: 10px;
     font-size: 16px; background: white; color: #1c1c1e;
     font-family: inherit; -webkit-appearance: none; appearance: none;
   }
   input:focus, select:focus, textarea:focus { outline: none; border-color: #f57c00; }
+
+  /* チェックボックスはネイティブ表示を維持 */
+  input[type="checkbox"] {
+    width: 22px; height: 22px;
+    accent-color: #f57c00;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
   select {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%236e6e73' d='M6 8L0 0h12z'/></svg>");
     background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
